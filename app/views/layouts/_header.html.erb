@@ -7,12 +7,13 @@
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <%= link_to "Home", root_path %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Score", score_path %>
-        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item"><%= link_to "Account Settings", edit_user_registration_path %></li>
+          <li class="nav-item"><%= link_to "Log out", destroy_user_session_path %></li>
+        <% else %>
+          <li class="nav-item"><%= link_to "Log in", new_user_session_path %></li>
+          <li class="nav-item"><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <% end %>
       </ul>
     </div>
   </nav>
