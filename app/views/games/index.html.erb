@@ -1,0 +1,26 @@
+<h1>All Games</h1>
+
+<table class="table">
+  <tr>
+    <th>Game #</th>
+    <th>Players</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @games.each do |g| %>
+    <tr>
+      <td><%= g.id %></td>
+      <td><%= "players" %></td>
+      <td><%= link_to 'View', "#", class: "btn btn-primary" %></td>
+      <td>
+        <% if true # TODO check that user is anyone but Dea %>
+          <%= link_to 'Edit', "#", class: "btn btn-primary" %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<p>
+  <%= link_to 'Create New Game', "#", class: "btn btn-primary" %>
+</p>
