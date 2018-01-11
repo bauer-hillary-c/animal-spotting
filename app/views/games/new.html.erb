@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      <h1>New Game</h1>
+    </div>
+  </div>
+  <div class="panel-body">
+    <%= form_for :game, url: games_path, html: { multipart: true } do |f| %>
+      <div class="form-group">
+        <p>
+          <%= f.label :player %>
+          <%= f.collection_select(:user, User.all, :id, :email, class: "form-control") %>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <p>
+          <%= f.submit "Save Game", class: "btn btn-primary" %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="panel-footer">
+    <p>
+      <%= link_to 'View All', games_path %>
+    </p>
+  </div> 
+</div>
