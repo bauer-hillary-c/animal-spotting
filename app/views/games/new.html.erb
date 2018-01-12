@@ -8,7 +8,7 @@
     <%= form_for :game, url: games_path, html: { multipart: true } do |f| %>
       <div class="form-group">
         <p>
-          <%= f.label :player %>
+          <%= f.label :user %>
           <%= f.collection_select(:user, User.all, :id, :email, class: "form-control") %>
         </p>
       </div>
