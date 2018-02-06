@@ -1,0 +1,18 @@
+<h1>Game #<%= @game.id %></h1>
+
+<table class="table">
+  <tr>
+    <th>Game #</th>
+    <th>Player 1</th>
+    <th>Player 2</th>
+  </tr>
+
+  <tr>
+    <td><%= @game.id %></td>
+    <td colspan="2"><%= "players" %></td>
+  </tr>
+</table>
+
+<p>
+  <%= link_to 'Create New Game', new_game_path, class: "btn btn-primary" %>
+</p>
