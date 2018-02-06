@@ -3,8 +3,9 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.new(game_params)
-    Score.create(game: @game, user: params[:user])
+    @game = Game.new
+    Score.create(game: @game, user_id: params[:user1_id])
+    Score.create(game: @game, user_id: params[:user2_id])
 
     if @game.save
       redirect_to @game
@@ -15,11 +16,5 @@ class GamesController < ApplicationController
 
   def index
     @games = Game.all
-  end
-
-  private
-
-  def game_params
-    params.require(:game).permit(:user)
   end
 end

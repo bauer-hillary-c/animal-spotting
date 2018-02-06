@@ -9,7 +9,14 @@
       <div class="form-group">
         <p>
           <%= f.label :user %>
-          <%= f.collection_select(:user, User.all, :id, :email, class: "form-control") %>
+          <%= f.collection_select(:user1_id, User.all, :id, :email, {:selected => "Select user"}, class: "form-control") %>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <p>
+          <%= f.label :user %>
+          <%= f.collection_select(:user2_id, User.all, :id, :email, {:selected => "Select user"}, class: "form-control") %>
         </p>
       </div>
 
