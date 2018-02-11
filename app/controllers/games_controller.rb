@@ -8,10 +8,10 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new
-    Score.create(game: @game, user_id: params[:user1_id])
-    Score.create(game: @game, user_id: params[:user2_id])
 
     if @game.save
+      Score.create(game: @game, user_id: params[:game][:user1_id].to_i, points: 0)
+      Score.create(game: @game, user_id: params[:game][:user2_id].to_i, points: 0)
       redirect_to @game
     else
       render 'new'
