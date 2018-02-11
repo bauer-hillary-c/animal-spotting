@@ -9,7 +9,8 @@
 
   <tr>
     <td><%= @game.id %></td>
-    <td colspan="2"><%= "players" %></td>
+    <td><%= @game.users.first.try(:email) %></td>
+    <td><%= @game.users.last.try(:email) %></td>
   </tr>
 </table>
 
