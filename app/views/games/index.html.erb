@@ -3,14 +3,16 @@
 <table class="table">
   <tr>
     <th>Game #</th>
-    <th>Players</th>
+    <th>Player 1</th>
+    <th>Player 2</th>
     <th colspan="2"></th>
   </tr>
 
   <% @games.each do |g| %>
     <tr>
       <td><%= g.id %></td>
-      <td><%= "players" %></td>
+      <td><%= g.users.first.try(:email) %></td>
+      <td><%= g.users.last.try(:email) %></td>
       <td><%= link_to 'View', "#", class: "btn btn-primary" %></td>
       <td>
         <% if true # TODO check that user is anyone but Dea %>
