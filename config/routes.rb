@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "pages#home"
   get 'pages/home'
   get "score" => "pages#score"
+  post "update_scores" => "pages#update_scores"
 
   resources :games, only: [:index, :new, :create, :show]
 
