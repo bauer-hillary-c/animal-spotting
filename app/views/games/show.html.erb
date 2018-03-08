@@ -2,15 +2,17 @@
 
 <table class="table">
   <tr>
-    <th>Game #</th>
     <th>Player 1</th>
-    <th>Player 2</th>
+    <td><%= @game.users.first.try(:email) %></td>
+    <td><%= @game.users.first.try(:score) || "--" %></td>
+    <td></td>
   </tr>
 
   <tr>
-    <td><%= @game.id %></td>
-    <td><%= @game.users.first.try(:email) %></td>
+    <th>Player 2</th>
     <td><%= @game.users.last.try(:email) %></td>
+    <td><%= @game.users.last.try(:score) || "--" %></td>
+    <td></td>
   </tr>
 </table>
 
