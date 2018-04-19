@@ -2,13 +2,9 @@ class PagesController < ApplicationController
   def home
   end
 
-  def score
-    @game = Game.find(params[:game_id])
-  end
-
   def update_scores
     @game = Game.find(params[:game_id])
-    @player = @game.users
+    @players = @game.users
 
     if params[:scores][:player_1_points].present?
       p1_score = @players.first.scores.find_by(game_id: @game.id)
