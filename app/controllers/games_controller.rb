@@ -1,4 +1,6 @@
 class GamesController < ApplicationController
+  before_filter :authenticate_user!
+
   def show
     @game = Game.find(params[:id])
     @players = @game.users
@@ -20,7 +22,7 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = Game.all
+    @games = Game.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
   end
 
   def destroy

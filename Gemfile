@@ -18,6 +18,8 @@ gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'devise'
 gem 'pry-rails'
+gem 'will_paginate', '~> 3.0.5'
+gem 'will_paginate-bootstrap'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -26,3 +26,7 @@
 <p>
   <%= link_to 'Create New Game', new_game_path, class: "btn btn-primary" %>
 </p>
+
+<div class="center">
+   <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
+</div>
