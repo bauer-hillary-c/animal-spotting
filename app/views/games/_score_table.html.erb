@@ -1,0 +1,12 @@
+<div>
+  <table class="table">
+    <% @players.each do |player| %>
+      <tr>
+        <th>Player ID #<%= player.id %></th>
+        <td><%= player.try(:email) %></td>
+        <td><%= player.scores.find_by(game_id: @game.id).points || "--" %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
