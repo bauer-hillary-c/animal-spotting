@@ -1,11 +1,11 @@
-<h1>Game #<%= @game.id %></h1>
+<h1 class="center">Game #<%= @game.id %></h1>
 
 <%= render "score_table" %>
 
-<div style="margin-top: 50px">
+<div>
   <%= render "score_input", locals: {game: @game} %>
 </div>
 
-<p>
-  <%= link_to "All Games", games_path, { class: "btn", style: "margin-right:40px" } %>
+<p class="center">
+  <%= link_to "All Games", games_path, { class: "btn" } %>
 </p>
