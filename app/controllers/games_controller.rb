@@ -22,7 +22,11 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = Game.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+    game_ids = current_user.scores.pluck(:game_id)
+    @games = Game.
+      where(id: game_ids).
+      order("created_at DESC").
+      paginate(:page => params[:page], :per_page => 5)
   end
 
   def destroy
