@@ -1,12 +1,9 @@
-<div>
-  <table class="table">
-    <% @players.each do |player| %>
-      <tr>
-        <th>Player ID #<%= player.id %></th>
-        <td><%= player.try(:email) %></td>
-        <td><%= player.scores.find_by(game_id: @game.id).points || "--" %></td>
-        <td></td>
-      </tr>
-    <% end %>
-  </table>
+<div class="score-table">
+  <% @players.each do |player| %>
+    <div class="player-profile">
+      <h4>Player ID #<%= player.id %></h4>
+      <p><%= player.try(:email) %></p>
+      <p><%= player.scores.find_by(game_id: @game.id).points || "--" %></p>
+    </div>
+  <% end %>
 </div>
