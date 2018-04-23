@@ -20,9 +20,9 @@ gem 'devise'
 gem 'pry-rails'
 gem 'will_paginate', '~> 3.0.5'
 gem 'will_paginate-bootstrap4'
+gem 'envyable', require: 'envyable/rails-now'
 gem 'aws-sdk', '>= 2.0.34'
 gem 'paperclip'
-gem 'envyable'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
