@@ -1,0 +1,13 @@
+<div style="margin-bottom: 10px">
+  <%= link_to 'Back', animals_path, class: "btn btn-primary" %>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1>New Animal</h1>
+  </div>
+
+  <div class="panel-body">
+    <%= render 'form', animal: @animal %>
+  </div>
+</div>

@@ -4,12 +4,26 @@ class AnimalsController < ApplicationController
   end
 
   def create
-    @animal = current_user.animals.build(animal_params)
+    @animal = Animal.new(name: params[:animals][:name])
 
     if @animal.save
-      redirect_to @animal, notice: 'Animal was successfully created.'
+      PointValue.create(
+        animal_id: @animal.id,
+        points: params[:animals][:points],
+        created_by_id: current_user.id
+      )
+      # save animal image
+
+      render :new
+      # redirect_to @animal, notice: 'Animal was successfully created.'
     else
       render :new
     end
+  end
+
+  private
+
+  def animal_params
+    params.require(:animal).permit(:name, :points)
   end
 end
