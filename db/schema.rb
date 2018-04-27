@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180423025700) do
+ActiveRecord::Schema.define(version: 20180427042728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,12 +36,14 @@ ActiveRecord::Schema.define(version: 20180423025700) do
   end
 
   create_table "point_values", force: :cascade do |t|
-    t.integer  "animal_id",     null: false
-    t.integer  "points",        null: false
-    t.integer  "created_by_id", null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "animal_id",       null: false
+    t.integer  "points",          null: false
+    t.integer  "created_by_id",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "animal_image_id"
     t.index ["animal_id"], name: "index_point_values_on_animal_id", using: :btree
+    t.index ["animal_image_id"], name: "index_point_values_on_animal_image_id", using: :btree
     t.index ["created_by_id"], name: "index_point_values_on_created_by_id", using: :btree
   end
 
@@ -72,6 +74,7 @@ ActiveRecord::Schema.define(version: 20180423025700) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "point_values", "animal_images"
   add_foreign_key "point_values", "animals", on_delete: :cascade
   add_foreign_key "scores", "games", on_delete: :cascade
 end
