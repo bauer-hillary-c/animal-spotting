@@ -1,4 +1,12 @@
 class AnimalsController < ApplicationController
+  def show
+    @animal = Animal.find(params[:id])
+    @point_value = @animal.
+      point_values.
+      where(created_by_id: current_user.id).
+      last
+  end
+
   def new
     @animal = Animal.new
   end

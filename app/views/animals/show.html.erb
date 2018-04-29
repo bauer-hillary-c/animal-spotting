@@ -1,0 +1,30 @@
+<div class="animal-profile">
+  <div class="animal-card">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h1><%= @animal.name.titlecase %></h1>
+        </div>
+      </div>
+      <div class="panel-heading center">
+        <%= image_tag @point_value.animal_image.image.url(:medium) %>
+      </div>
+
+      <div class="panel-body">
+        <p>
+          <strong>Points: <%= @point_value.points %></strong>
+        </p>
+
+        <% if @point_value.created_by_id == current_user.id %>
+          <%= link_to "#" do %>
+            <span class="glyphicon glyphicon-edit"></span> Edit
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin: 10px">
+  <%= link_to 'Back', animals_path, class: "btn btn-primary" %>
+</div>
