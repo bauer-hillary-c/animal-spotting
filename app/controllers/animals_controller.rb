@@ -7,6 +7,13 @@ class AnimalsController < ApplicationController
       last
   end
 
+  def index
+    animal_ids = current_user.point_values.pluck(:animal_id)
+    @animals = Animal.
+    where(id: animal_ids).
+    order("created_at DESC")
+  end
+
   def new
     @animal = Animal.new
   end
