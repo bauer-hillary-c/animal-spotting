@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :scores
-  has_many :point_values
+  has_many :point_values, foreign_key: "created_by_id"
 end
