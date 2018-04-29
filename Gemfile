@@ -23,6 +23,7 @@ gem 'will_paginate-bootstrap4'
 gem 'envyable', require: 'envyable/rails-now'
 gem 'aws-sdk', '>= 2.0.34'
 gem 'paperclip'
+gem 'masonry-rails', '~> 0.2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
