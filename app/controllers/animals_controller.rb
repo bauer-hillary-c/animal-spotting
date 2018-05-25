@@ -34,8 +34,7 @@ class AnimalsController < ApplicationController
 
       point_value.update(animal_image_id: animal_image.id)
 
-      render :new
-      # redirect_to @animal, notice: 'Animal was successfully created.'
+      redirect_to animals_url, notice: 'Animal was successfully created.'
     else
       render :new
     end

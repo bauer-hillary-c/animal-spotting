@@ -2,7 +2,9 @@
   <% @animals.each do |animal| %>
     <% point_value = animal.point_values.where(created_by_id: current_user.id).last %>
     <div class="box panel panel-default">
-      <%= link_to image_tag(point_value.animal_image.image.url(:medium)), animal %>
+      <div class="panel-heading center">
+        <%= link_to image_tag(point_value.animal_image.image.url(:medium)), animal %>
+      </div>
       <div class="panel-body">
         <div>
           <%= animal.name %>
