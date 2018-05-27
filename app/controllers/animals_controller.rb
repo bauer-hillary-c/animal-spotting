@@ -22,17 +22,16 @@ class AnimalsController < ApplicationController
     @animal = Animal.new(name: params[:animals][:name])
 
     if @animal.save
-      point_value = PointValue.create(
-        animal_id: @animal.id,
-        points: params[:animals][:points],
-        created_by_id: current_user.id
-      )
-
       animal_image = AnimalImage.create(
         image: params[:animals][:image]
       )
 
-      point_value.update(animal_image_id: animal_image.id)
+      PointValue.create(
+        animal_id: @animal.id,
+        points: params[:animals][:points],
+        created_by_id: current_user.id,
+        animal_image_id: animal_image.id
+      )
 
       redirect_to animals_url, notice: 'Animal was successfully created.'
     else
