@@ -19,16 +19,16 @@ class AnimalsController < ApplicationController
   end
 
   def create
-    @animal = Animal.new(name: params[:animals][:name])
+    @animal = Animal.new(name: params[:animal][:name])
 
     if @animal.save
       animal_image = AnimalImage.create(
-        image: params[:animals][:image]
+        image: params[:animal][:image]
       )
 
       PointValue.create(
         animal_id: @animal.id,
-        points: params[:animals][:points],
+        points: params[:animal][:points],
         created_by_id: current_user.id,
         animal_image_id: animal_image.id
       )
