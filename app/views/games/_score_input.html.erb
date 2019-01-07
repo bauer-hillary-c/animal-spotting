@@ -1,18 +1,13 @@
 <div class="score-table">
   <%= form_for :scores, url: update_scores_path(game_id: @game.id), html: { multipart: true } do |f| %>
-    <div class="score-input">
-      <p>
-        <%= f.label :player_1 %>
-        <%= f.text_field(:player_1_points, class: "form-control") %>
-      </p>
-    </div>
-
-    <div class="score-input">
-      <p>
-        <%= f.label :player_2 %>
-        <%= f.text_field(:player_2_points, class: "form-control") %>
-      </p>
-    </div>
+    <% @players.each do |player| %>
+      <div class="score-input">
+        <p>
+          <%= f.label player.username %>
+          <%= f.text_field(player.id, class: "form-control") %>
+        </p>
+      </div>
+    <% end %>
 
     <div class="center">
       <p>
