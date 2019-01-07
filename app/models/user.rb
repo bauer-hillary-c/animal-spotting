@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :scores
   has_many :point_values, foreign_key: "created_by_id"
+  has_many :animals, through: :point_values
   validates :username, presence: :true, uniqueness: { case_sensitive: false }
   validate :validate_username
 
