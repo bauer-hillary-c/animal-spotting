@@ -1,0 +1,28 @@
+<div id="animals" class="transitions-enabled">
+  <% animals.each do |animal| %>
+    <% point_value = animal.point_values.where(created_by_id: current_user.id).last %>
+    <%= link_to "#", {style: "text-decoration: none"} do %>
+      <div class="box panel panel-default">
+        <div class="panel-heading center">
+          <%= image_tag(point_value.animal_image.image.url(:medium)) %>
+        </div>
+        <div class="panel-body">
+          <div>
+            <%= animal.name %>
+          </div>
+
+          <div>
+            <strong>Points: <%= point_value.points %></strong>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<script>
+  $('.panel-body').click( function(event) {
+    var clicked_div = $(this);
+    puts "CLICKED"
+  });
+</script>
