@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root "pages#home"
   get 'pages/home'
-  post "update_scores" => "pages#update_scores"
+  post "update_scores" => "scores#update_scores"
 
   resources :games, only: [:index, :new, :create, :show, :destroy]
 
