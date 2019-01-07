@@ -1,33 +1,10 @@
-<div id="animals" class="transitions-enabled">
-  <% @animals.each do |animal| %>
-    <% point_value = animal.point_values.where(created_by_id: current_user.id).last %>
-    <div class="box panel panel-default">
-      <div class="panel-heading center">
-        <%= link_to image_tag(point_value.animal_image.image.url(:medium)), animal %>
-      </div>
-      <div class="panel-body">
-        <div>
-          <%= animal.name %>
-        </div>
-
-        <div>
-          <strong>Points: <%= point_value.points %></strong>
-        </div>
-
-        <% if point_value.created_by_id == current_user.id %>
-          <div class="actions">
-            <%= link_to "#" do %>
-              <span class="glyphicon glyphicon-edit"></span> Edit
-            <% end %>
-            <%= link_to animal, method: :delete, data: { confirm: 'Are you sure?' } do %>
-              <span class="glyphicon glyphicon-trash"></span> Delete
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-</div>
+<% if @animals %>
+  <div id="animals" class="transitions-enabled">
+    <%= render("shared/animals/animal_cards", animals: @animals) %>
+  </div>
+<% else %>
+  No custom animals yet. Make em, bro!
+<% end %>
 
 <p>
   <%= link_to 'Create New Animal', new_animal_path, class: "btn btn-primary" %>
