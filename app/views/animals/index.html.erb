@@ -1,7 +1,5 @@
 <% if @animals %>
-  <div id="animals" class="transitions-enabled">
-    <%= render("shared/animals/animal_cards", animals: @animals) %>
-  </div>
+  <%= render("shared/animals/animal_cards", animals: @animals) %>
 <% else %>
   No custom animals yet. Make em, bro!
 <% end %>

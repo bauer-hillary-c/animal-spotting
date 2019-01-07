@@ -6,6 +6,10 @@
   <%= render "score_input", locals: {game: @game} %>
 </div>
 
+<div>
+  <%= render "shared/animals/animal_cards", animals: current_user.animals %>
+</div>
+
 <p class="center">
   <%= link_to "All Games", games_path, { class: "btn" } %>
 </p>
